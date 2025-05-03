@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0px;
+    background:
+        linear-gradient(217deg, rgba(0, 0, 0), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 0), rgba(0, 0, 255, 0) 70.71%);
+
+}
+.form_contaner {
+    padding: 20px;
+    border-radius: 40px;
+    margin:  80px auto ;
+    width: 50%;
+    background-color: rgb(121,120,118);
+}
+
+form div {
+    padding: 20px;
+    background-color: rgb(121,120,118);
+    text-align: center;
+    font:  normal 35px  sans-serif;
+    color: aliceblue;
+
+}
+form label  {
+    background-color: rgb(88,88,88);
+    display: inline-block;
+    border-radius: 20px;
+    padding: 5px;
+    width: 40%;
+}
+.label_log{
+    width: 20%;
+}
+form input  {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    color: rgb(173,123,222);
+    width: 70%;
+    height: 30px;
+    padding: 15px;
+    font:  normal 25px  sans-serif;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+form button  {
+    margin:20px auto ;
+    display: block;
+    position: center;
+    width: 50%;
+    font:  normal 30px  sans-serif;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+}
+
+
+

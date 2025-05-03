@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    padding: 0px;
+    background:
+        linear-gradient(217deg, rgba(0, 0, 0), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 0), rgba(0, 0, 255, 0) 70.71%);
+}
+main{
+    width:80%;
+    margin:  120px auto ;
+    border-radius: 40px;
+    background-color: rgb(121,120,118);
+}
+h1 {
+    padding: 20px;
+    font:  bold 35px  sans-serif;
+    text-align: center;
+}
+
+form{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font:  normal 25px  sans-serif;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+.col  div{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 30px;
+    background-color: rgb(121,120,118);
+    text-align: center;
+}
+
+
+form label  {
+    padding: 10px;
+    background-color: rgb(121,120,118);
+    display: inline-block;
+    width: 60%;
+}
+form input  {
+    display: inline-block;
+    background-color: aliceblue;
+    width: 50%;
+    height: 30px;
+    padding: 15px;
+    font:  normal 25px  sans-serif;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    color: rgb(173,123,222);
+}
+
+form button  {
+    margin:20px auto ;
+    display: block;
+    position: center;
+    width: 60%;
+    font:  normal 25px  sans-serif;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+
+}
+
+
+

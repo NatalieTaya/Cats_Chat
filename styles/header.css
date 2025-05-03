@@ -1,0 +1,35 @@
+header{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+}
+.header_name{
+    font:  bold 45px  sans-serif;
+    background-color: rgb(173,123,222);
+    padding: 30px;
+    border-radius: 40px;
+    color: aliceblue;
+    margin: auto;
+}
+.exit_btn {
+    padding: 0px;
+    width: 10%;
+    margin: auto 10px auto auto;
+}
+
+.exit_btn button  {
+    display: block;
+    position: center;
+    width: 50%;
+    height: 50%;
+    font:  normal 30px  sans-serif;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+
+}

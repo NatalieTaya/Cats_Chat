@@ -2,8 +2,6 @@
     session_start();
     include('lib/libDB.php');
 
-    $login = $_SESSION['login'];
-
     // Меню под шапкой сайта
     if (isset($_POST['submitExit'])) {
         setcookie('key', '', 0);
@@ -26,13 +24,14 @@
 
     <nav>
         <a href="personal.php">Главная</a>
+        <a href="messages.php">Сообщения</a>
     </nav>
 
 
         <main>
             <?php 
             // Вывод информации о пользователе
-
+                printf('ID пользователя: %s', $_SESSION['user_id'])
             ?>
         </main>
 

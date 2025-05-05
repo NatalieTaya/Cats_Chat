@@ -1,10 +1,11 @@
 body{
     margin: 0;
     padding: 0px;
+    height: 1vh;
     background:
-        linear-gradient(217deg, rgba(0, 0, 0), rgba(255, 0, 0, 0) 70.71%),
-        linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 255, 0, 0) 70.71%),
-        linear-gradient(336deg, rgba(0, 0, 0), rgba(0, 0, 255, 0) 70.71%);
+        linear-gradient(217deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%),
+        linear-gradient(127deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%),
+        linear-gradient(336deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%);
     }
 
 

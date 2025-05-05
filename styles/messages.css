@@ -1,0 +1,29 @@
+
+
+#newMessage{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    color: rgb(173,123,222);
+    border-radius: 5px;
+}
+#newMessage:focus{
+    outline: none;
+}
+#messageBlock {
+    margin: 0 auto;
+    border: black 2px solid;
+    height: 300px;
+    overflow: scroll;
+}
+.message_sender {
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+    border-radius: 5px;
+    width: 70%;
+    margin: 10px;
+    margin-left: 30%;
+    margin-right: auto;
+}

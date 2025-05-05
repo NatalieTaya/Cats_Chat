@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0px;
+    height: 1vh;
     background:
         linear-gradient(217deg, rgba(0, 0, 0), rgba(255, 0, 0, 0) 70.71%),
         linear-gradient(127deg, rgb(0, 0, 0), rgba(0, 255, 0, 0) 70.71%),

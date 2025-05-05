@@ -11,14 +11,13 @@
     $login =  $_POST['login'] ?? '';
     $password =  $_POST['password'] ?? '';
     // получение информации о пользователе 
-    $data=getUserInfoAutorization($login,$password);
 
 
     if (isset($_POST['submitLogin'])) {
             if ($data!==false) {
                 setcookie('key','hahaha');
-                
-
+                $data=getUserInfoAutorization($_POST['login']);
+                $_SESSION['user_id']=$data[0]['user_id'];
                 header('Location: /personal.php');
             } else {
                 echo 'wrong login or password';

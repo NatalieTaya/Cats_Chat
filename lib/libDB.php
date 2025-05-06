@@ -1,5 +1,12 @@
 <?php 
-
+function getAllUsers()  {  
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM users ');
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;                          
+}
     // получение информации о пользователе 
 function getUserInfoAutorization($username)  {  
     include('db.php');
@@ -23,7 +30,17 @@ function getMessages($sender_id)  {
     $query = null; $dbh = null;
     return $data;                          
 }
-
+function getMessagesToMe($sender_id,$receiver_id)  {  
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM messages WHERE
+                                `sender_id` = :sender_id AND`receiver_id` = :receiver_id');
+    $query->bindParam(':sender_id',$sender_id);
+    $query->bindParam(':receiver_id',$receiver_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;                          
+}
 
 
 

@@ -35,9 +35,98 @@ nav a:hover{
 }
 
 main{
+    display: flex;
+    flex-direction: row;
     padding: 30px;
     margin:  50px ;
     border-radius: 8px;
     font: normal 30px sans-serif;
     
+}
+.usersData {
+    display: flex;
+    flex-direction: column;
+    border: black 2px solid;
+}
+#usersData {
+    display: flex;
+    flex-direction: row;
+    border: black 2px solid;
+}
+.userName{
+    border-radius:15px;
+    padding: 15px;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+    border: black 2px solid;
+    text-align: center;
+}
+.userInfo{
+    border-radius:15px;
+    padding: 15px;
+    background-color: aliceblue;
+    color: rgb(173,123,222);
+    border: black 2px solid;
+    text-align: center;
+}
+.userFriends{
+    border: black 2px solid;
+}
+#inputText {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    color: rgb(173,123,222);
+    width: 70%;
+    height: 20px;
+    padding: 15px;
+    font:  normal 25px  sans-serif;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    resize: vertical; /* Позволяет пользователю изменять высоту */
+    min-height: 50px; /* Минимальная высота, как у вашего input */
+    vertical-align: middle; /* Выравнивание */
+
+}
+input[type=file] {
+    display: none;
+}
+#inputLabelFile {
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    vertical-align: middle; /* Выравнивание */
+
+}
+#submitPostBtn  {
+    display: inline-block;
+    position: center;
+    width: 20%;
+    height: 50px;
+    font:  normal 30px  sans-serif;
+    border: none;
+    padding: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
+    vertical-align: middle; /* Выравнивание */
+
+} 
+
+.friends_avatar{
+    display: block;
+    margin: 5px;
+    border: black 2px solid;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+
+
+}
+aside{
+    display: flex;
+    flex-direction: column;
 }

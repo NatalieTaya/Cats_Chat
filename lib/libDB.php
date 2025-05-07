@@ -1,4 +1,5 @@
 <?php 
+
 function getAllUsers()  {  
     include('db.php');
     $query = $dbh->prepare('SELECT * FROM users ');
@@ -8,7 +9,7 @@ function getAllUsers()  {
     return $data;                          
 }
     // получение информации о пользователе 
-function getUserInfoAutorization($username)  {  
+function getUserInfo($username)  {  
     include('db.php');
     $query = $dbh->prepare('SELECT * FROM users WHERE
                                 `username` = :username');
@@ -18,7 +19,16 @@ function getUserInfoAutorization($username)  {
     $query = null; $dbh = null;
     return $data;    
 }
-
+function getUserAvatar($avatar_id)  {  
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM avatars WHERE
+                                `avatar_id` = :avatar_id');
+    $query->bindParam(':avatar_id',$avatar_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data[0]['avatar_image'];    
+}
 // получение сообщений пользователя 
 function getMessages($sender_id)  {  
     include('db.php');

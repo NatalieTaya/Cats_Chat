@@ -1,3 +1,45 @@
+body{
+    margin: 0;
+    padding: 0px;
+    height: 1vh;
+    background:
+        linear-gradient(217deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%),
+        linear-gradient(127deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%),
+        linear-gradient(336deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%);
+    }
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5px;
+    height: 60px;
+    align-items: center;
+    background-color: rgb(121,120,118);
+}
+nav a, nav a:visited{
+    display: inline-block;
+    color: black;
+    margin: auto 10px ;
+    background-color: rgb(121,120,118);
+    font:  normal 25px  sans-serif;
+    text-decoration: none;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+nav a:hover{
+    background-color: rgb(121,120,118);
+}
+main{
+    padding: 30px;
+    margin:  50px ;
+    border-radius: 8px;
+    font: normal 30px sans-serif;
+    
+}
 #messageBlock {
     margin: 0 auto;
     border: black 2px solid;

@@ -57,17 +57,21 @@
                     </div>
                 </div>
                 <div class="myPosts">
-                        <?php 
-                        // Вывод постов пользователя
-                        print_r("Мои посты");
-                        ?>
-                        <form action="">
-                            <textarea id="inputText" ></textarea>
-                            <input id="inputFile" type="file">
-                            <label  id="inputLabelFile" for="inputFile"><img src="img/picInput.png" alt="" width="50px"></label>
-                            <button id="submitPostBtn" type="submit">Отправить</button>
+                        <div class="Postsheader">
+                            <?php 
+                                // Вывод постов пользователя
+                                print_r("Мои посты");
+                            ?>
+                        </div>
+                        <form action="" onsubmit="sendPost(event)">
+                            <textarea   id="inputText" ></textarea>
+                            <input      id="inputFile" type="file">
+                            <label      id="inputLabelFile" for="inputFile"><img src="img/picInput.png" alt="" width="50px"></label>
+                            <button     id="submitPostBtn" type="submit">Отправить</button>
                         </form>
+                        <div id="PostsPosted">
 
+                        </div>
                 </div>
             </div>
             <aside class="userFriends">
@@ -79,7 +83,11 @@
                     }
                     ?>
             </aside>
-
+            <script>
+                window.sender_id = <?php echo json_encode($user_info[0]['user_id'], JSON_UNESCAPED_UNICODE) ?>;
+            </script>
+            <script src="scripts/sendPost.js">
+            </script>
 
 
         </main>

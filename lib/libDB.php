@@ -66,4 +66,21 @@ function createNewMessage($sender_id ,$receiver_id ,$message_text,$created_at)  
         ':message_text' => $message_text,
         ':created_at' => $created_at
         ]);
+    $query = null; $dbh = null;
+
+}
+// Создание нового поста в БД
+function createNewPost($sender_id ,$text ,$pic_id,$created_at)     {
+    include('db.php');
+    $query = $dbh->prepare('INSERT INTO posts
+                    (`sender_id`,`text`,`pic_id`,`created_at`)
+                    VALUES ( :sender_id, :text, :pic_id, :created_at)');
+    $status = $query->execute([ 
+        ':sender_id' => $sender_id,
+        ':text' => $text,
+        ':pic_id' => $pic_id,
+        ':created_at' => $created_at
+        ]);
+    $query = null; $dbh = null;
+
 }

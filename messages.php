@@ -107,7 +107,7 @@
             // передача данных того, кто отправляет сообщение
             window.sender = <?php echo json_encode($sender_id, JSON_UNESCAPED_UNICODE) ?>;
         </script>
-        <script src="sendMessage.js">
+        <script src="scripts/sendMessage.js">
         </script>
 
 

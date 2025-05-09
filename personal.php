@@ -30,6 +30,7 @@
             $userFriends=getAllUsers();
             $user_info=getUserInfo($_SESSION['username']);
             $photoUrl=getUserAvatar($user_info[0]['photo_id']);
+            $posts=getUsersPosts($_SESSION['user_id']);
     ?>
 
         <main>
@@ -63,19 +64,39 @@
                                 print_r("Мои посты");
                             ?>
                         </div>
-                        <form action="" onsubmit="sendPost(event)">
+                        <form enctype="multipart/form-data" onsubmit="sendPost(event)">
                             <textarea   id="inputText" ></textarea>
-                            <input      id="inputFile" type="file">
-                            <label      id="inputLabelFile" for="inputFile"><img src="img/picInput.png" alt="" width="50px"></label>
+                            <input      id="inputFile" name="image" type="file" >
+                            <label      id="inputLabelFile" for="inputFile" class="file-input">
+                                <img src="img/picInput.png" alt="" width="50px">
+                            </label>
                             <button     id="submitPostBtn" type="submit">Отправить</button>
                         </form>
                         <div id="PostsPosted">
+                        <?php 
+                        // сортируем все посты по дате
+                        usort($posts, function($a, $b) {
+                            return strtotime($b['created_at']) <=> strtotime($a['created_at']);
+                        });
+                                foreach($posts as $post) {
+                                    printf('<div class = "post">');
+                                        if ($post['image_blob'] !== null ) {
 
+                                            $fileDataImage = base64_encode($post['image_blob']);
+                                            $finfo = new finfo(FILEINFO_MIME_TYPE);
+                                            $mimeType = $finfo->buffer($post['image_blob']);
+                                            printf(' <img src=" data:'.$mimeType.'  ;base64,    '.$fileDataImage.'   "  height = 300px>');
+                                        }
+                                    printf('<p>%s</p>', $post['text']);
+                                    printf('</div>');
+                                    
+                                }
+                        ?>
                         </div>
                 </div>
             </div>
             <aside class="userFriends">
-                    Мои друзья
+                    <h2>Мои друзья</h2>
                     <?php 
                     // Вывод друзей пользователя
                     foreach($userFriends as $friend) {

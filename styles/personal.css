@@ -7,8 +7,6 @@ body{
         linear-gradient(127deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%),
         linear-gradient(336deg, rgb(10, 10, 10), rgb(71, 71, 71) 100%);
     }
-
-
 nav {
     display: flex;
     flex-direction: row;
@@ -33,7 +31,6 @@ nav a, nav a:visited{
 nav a:hover{
     background-color: rgb(121,120,118);
 }
-
 main{
     display: flex;
     flex-direction: row;
@@ -44,6 +41,7 @@ main{
     
 }
 .usersData {
+    padding: 20px;
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -101,6 +99,9 @@ input[type=file] {
     vertical-align: middle; /* Выравнивание */
 
 }
+#inputLabelFile.file-loaded {
+    background-color: rgb(173,123,222);
+}
 #submitPostBtn  {
     display: inline-block;
     position: center;
@@ -116,26 +117,52 @@ input[type=file] {
     vertical-align: middle; /* Выравнивание */
 
 } 
-#PostsPosted{
-    border: black 2px solid;
+.myPosts{
+    text-align: center;
 }
-.post {
-    position: center;
+.Postsheader{
+    width: 20%;
     height: 50px;
-    font:  normal 30px  sans-serif;
+    font:  normal 40px  sans-serif;
     border: none;
-    padding: 0px;
+    margin: 10px auto;
+    padding: 10px;
     border-radius: 8px;
     background-color: rgb(173,123,222);
     color: aliceblue;
 }
-
+#PostsPosted{
+    border: black 2px solid;
+}
+.post {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    position: center;
+    font:  normal 30px  sans-serif;
+    border: none;
+    padding: 0px;
+    border-radius: 8px;
+    background:
+        linear-gradient(217deg, rgba(173, 123, 222, 0.7), rgba(41, 41, 41, 0.7) 70%),
+        linear-gradient(336deg, rgba(99, 99, 99, 0.6), rgba(0, 0, 0, 0.6) 70%);
+    background-blend-mode: overlay;
+    color: aliceblue;
+}
+.post img{
+    display: block;
+    margin:7px;
+}
+.post p{
+    margin:7px;
+    word-break: break-word;
+}
 .friends_avatar{
     display: block;
-    margin: 5px;
+    margin: 10px;
     border: black 2px solid;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     border-radius: 100%;
 
 
@@ -144,4 +171,13 @@ aside{
     width: 30%;
     display: flex;
     flex-direction: column;
+}
+.userFriends h2 {
+    font:  normal 40px  sans-serif;
+    border: none;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(173,123,222);
+    color: aliceblue;
 }

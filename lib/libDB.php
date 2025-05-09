@@ -70,17 +70,29 @@ function createNewMessage($sender_id ,$receiver_id ,$message_text,$created_at)  
 
 }
 // Создание нового поста в БД
-function createNewPost($sender_id ,$text ,$pic_id,$created_at)     {
+function createNewPost($sender_id ,$text ,$image_blob,$created_at)     {
     include('db.php');
     $query = $dbh->prepare('INSERT INTO posts
-                    (`sender_id`,`text`,`pic_id`,`created_at`)
-                    VALUES ( :sender_id, :text, :pic_id, :created_at)');
+                    (`sender_id`,`text`,`image_blob`,`created_at`)
+                    VALUES ( :sender_id, :text, :image_blob, :created_at)');
     $status = $query->execute([ 
         ':sender_id' => $sender_id,
         ':text' => $text,
-        ':pic_id' => $pic_id,
+        ':image_blob' => $image_blob,
         ':created_at' => $created_at
         ]);
     $query = null; $dbh = null;
+
+}
+// Получение всех постов пользователя 
+function getUsersPosts($sender_id) {
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM posts WHERE
+                            `sender_id` = :sender_id ');
+    $query->bindParam(':sender_id',$sender_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;                             
 
 }

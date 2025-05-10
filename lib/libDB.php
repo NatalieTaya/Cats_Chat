@@ -9,7 +9,18 @@ function getAllUsers()  {
     return $data;                          
 }
     // получение информации о пользователе 
-function getUserInfo($username)  {  
+function getUserInfo($user_id)  {  
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM users WHERE
+                                `user_id` = :user_id');
+    $query->bindParam(':user_id',$user_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;    
+}
+// получение информации о пользователе 
+function getUserInfoByUsername($username)  {  
     include('db.php');
     $query = $dbh->prepare('SELECT * FROM users WHERE
                                 `username` = :username');
@@ -90,6 +101,19 @@ function getUsersPosts($sender_id) {
     $query = $dbh->prepare('SELECT * FROM posts WHERE
                             `sender_id` = :sender_id ');
     $query->bindParam(':sender_id',$sender_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;                             
+
+}
+function getUsersFriends($friend_id,$status) {
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM friendships WHERE
+                            (`friend_id` = :friend_id OR `friends_with_id` = :friends_with_id) AND `status` = :status');
+    $query->bindParam(':friend_id',$friend_id);
+    $query->bindParam(':friends_with_id',$friend_id);
+    $query->bindParam(':status',$status);
     $query->execute();
     $data = $query->fetchAll();
     $query = null; $dbh = null;

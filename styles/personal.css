@@ -181,3 +181,21 @@ aside{
     background-color: rgb(173,123,222);
     color: aliceblue;
 }
+.userFriends a {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 8px;
+    color: aliceblue;
+}
+.userFriends a span {
+    display: block;
+    font:  normal 40px  sans-serif;
+    border: none;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 8px;
+    color: aliceblue;
+}

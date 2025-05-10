@@ -16,7 +16,9 @@
     if (isset($_POST['submitLogin'])) {
             if ($data!==false) {
                 setcookie('key','hahaha');
-                $data=getUserInfo($_POST['login']);
+
+                $data=getUserInfoByUsername($_POST['login']);
+
                 $_SESSION['user_id']=$data[0]['user_id'];
                 $_SESSION['username']=$data[0]['username'];
 

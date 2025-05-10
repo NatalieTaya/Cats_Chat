@@ -2,7 +2,8 @@
     session_start();
     include('lib/libDB.php');
     include('lib/lib.php');
-    $userId =$_SESSION['user_id'];
+    $userId = $_GET['id'] ?? null;       
+
     // Меню под шапкой сайта
     if (isset($_POST['submitExit'])) {
         setcookie('key', '', 0);
@@ -109,10 +110,6 @@
             </script>
             <script src="scripts/sendPost.js">
             </script>
-
-
         </main>
-
-
 </body>
 </html>

@@ -1,0 +1,20 @@
+main{
+    margin: 0 auto;
+        border:black 2px solid;
+
+}
+#users_window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:black 2px solid;
+    margin: 0 auto;
+
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    border:black 2px solid;
+    margin: 5px;
+}

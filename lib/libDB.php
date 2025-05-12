@@ -30,6 +30,7 @@ function getUserInfoByUsername($username)  {
     $query = null; $dbh = null;
     return $data;    
 }
+// получение аватарки пользователя 
 function getUserAvatar($avatar_id)  {  
     include('db.php');
     $query = $dbh->prepare('SELECT * FROM avatars WHERE
@@ -93,7 +94,45 @@ function createNewPost($sender_id ,$text ,$image_blob,$created_at)     {
         ':created_at' => $created_at
         ]);
     $query = null; $dbh = null;
-
+}
+// Создание новой дружеской связи
+function createNewFriendship($friend_id ,$friends_with_id ,$status,$created_at)     {
+    include('db.php');
+    $query = $dbh->prepare('INSERT INTO friendships
+                    (`friend_id`,`friends_with_id`,`status`,`created_at`)
+                    VALUES ( :friend_id, :friends_with_id, :status, :created_at)');
+    $status = $query->execute([ 
+        ':friend_id' => $friend_id,
+        ':friends_with_id' => $friends_with_id,
+        ':status' => $status,
+        ':created_at' => $created_at
+        ]);
+    $query = null; $dbh = null;
+}
+// Удаление новой дружеской связи
+function removeFriendship($friend_id ,$friends_with_id )     {
+    include('db.php');
+    $query = $dbh->prepare('DELETE FROM friendships WHERE
+                    (`friend_id` = :friend_id AND `friends_with_id` = :friends_with_id)
+                    OR
+                    (`friend_id` = :friends_with_id AND `friends_with_id` = :friend_id)');
+    $query ->execute([
+    ':friend_id' => $friend_id,
+    ':friends_with_id' => $friends_with_id]);
+    $query = null; $dbh = null;
+}
+function getFriendship($friend_id ,$friends_with_id )     {
+    include('db.php');
+    $query = $dbh->prepare('SELECT * FROM friendships WHERE
+                    (`friend_id` = :friend_id AND `friends_with_id` = :friends_with_id)
+                    OR
+                    (`friend_id` = :friends_with_id AND `friends_with_id` = :friend_id)');
+    $query->bindParam(':friend_id',$friend_id);
+    $query->bindParam(':friends_with_id',$friends_with_id);
+    $query->execute();
+    $data = $query->fetchAll();
+    $query = null; $dbh = null;
+    return $data;                             
 }
 // Получение всех постов пользователя 
 function getUsersPosts($sender_id) {

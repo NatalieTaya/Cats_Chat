@@ -27,6 +27,7 @@
         <a href="personal.php">Главная</a>
         <a href="messages.php">Сообщения</a>
         <a href="">Заявки в друзья</a>
+        <a href="otherUsers.php">Найти друзей</a>
     </nav>
     <?php 
             $userFriends=getUsersFriends($userId,1);

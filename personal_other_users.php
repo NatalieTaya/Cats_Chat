@@ -18,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/personal.css">
     <link rel="stylesheet" href="/styles/header.css">
+    <script src="scripts/addToFriends.js" defer></script>
 
     <title>Document</title>
 </head>
@@ -28,6 +29,7 @@
         <a href="personal.php">Главная</a>
         <a href="messages.php">Сообщения</a>
         <a href="">Заявки в друзья</a>
+        <a href="otherUsers.php">Найти друзей</a>
     </nav>
     <?php 
             $userFriends=getUsersFriends($userId,1);
@@ -38,6 +40,16 @@
 
         <main>
             <div class="usersData">
+                <div id="usersData">
+                    <div >
+                        <div id="text">
+                        <form onsubmit="addToFriends(event)">
+                            <input      type="hidden" name="id" value="<?php echo $userId; ?>">
+                            <button     id="addBtn" type="submit">  </button>
+                        </form>                
+                        </div>
+                    </div>
+                </div>
                 <div id="usersData">
                     <div class="userAvatar">
                         <?php 
@@ -53,9 +65,9 @@
                             ?>
                         </div>
                         <div class="userInfo">
-                        <?php 
-                            // Вывод имени и фамилии пользователя
-                                printf('%s ', $user_info[0]['user_info'])
+                            <?php 
+                                // Вывод имени и фамилии пользователя
+                                    printf('%s ', $user_info[0]['user_info'])
                             ?>
                         </div>
                     </div>
@@ -67,14 +79,6 @@
                                 print_r("Мои посты");
                             ?>
                         </div>
-                        <form enctype="multipart/form-data" onsubmit="sendPost(event)">
-                            <textarea   id="inputText" ></textarea>
-                            <input      id="inputFile" name="image" type="file" >
-                            <label      id="inputLabelFile" for="inputFile" class="file-input">
-                                <img src="img/picInput.png" alt="" width="50px">
-                            </label>
-                            <button     id="submitPostBtn" type="submit">Отправить</button>
-                        </form>
                         <div id="PostsPosted">
                         <?php 
                         // сортируем все посты по дате
@@ -106,10 +110,18 @@
                     ?>
             </aside>
             <script>
-                window.sender_id = <?php echo json_encode($user_info[0]['user_id'], JSON_UNESCAPED_UNICODE) ?>;
+                addToFriendsBtn = document.getElementById("addBtn")
+                window.friendship = <?php echo json_encode( $friendship, JSON_UNESCAPED_UNICODE)?>;
+                window.sender_id = <?php echo json_encode($_SESSION['user_id'], JSON_UNESCAPED_UNICODE) ?>;
+                window.user_id = <?php echo json_encode($userId, JSON_UNESCAPED_UNICODE) ?>;
+                if(friendship.length > 0) {                    
+                    addToFriendsBtn.innerHTML = "Убрать из друзей"
+                } else {
+                    addToFriendsBtn.innerHTML = "Добавить в друзья"
+                }
+                textDiv = document.getElementById("text")
             </script>
-            <script src="scripts/sendPost.js">
-            </script>
+
         </main>
 </body>
 </html>

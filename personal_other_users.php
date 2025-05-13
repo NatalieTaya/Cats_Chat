@@ -28,7 +28,7 @@
     <nav>
         <a href="personal.php">Главная</a>
         <a href="messages.php">Сообщения</a>
-        <a href="">Заявки в друзья</a>
+        <a href="friendRequests.php">Заявки в друзья</a>
         <a href="otherUsers.php">Найти друзей</a>
     </nav>
     <?php 
@@ -36,6 +36,7 @@
             $user_info=getUserInfo($userId);
             $photoUrl=getUserAvatar($user_info[0]['photo_id']);
             $posts=getUsersPosts($userId);
+            $friendship=getFriendship($userId ,$_SESSION['user_id'] );
     ?>
 
         <main>
@@ -110,16 +111,10 @@
                     ?>
             </aside>
             <script>
-                addToFriendsBtn = document.getElementById("addBtn")
                 window.friendship = <?php echo json_encode( $friendship, JSON_UNESCAPED_UNICODE)?>;
                 window.sender_id = <?php echo json_encode($_SESSION['user_id'], JSON_UNESCAPED_UNICODE) ?>;
                 window.user_id = <?php echo json_encode($userId, JSON_UNESCAPED_UNICODE) ?>;
-                if(friendship.length > 0) {                    
-                    addToFriendsBtn.innerHTML = "Убрать из друзей"
-                } else {
-                    addToFriendsBtn.innerHTML = "Добавить в друзья"
-                }
-                textDiv = document.getElementById("text")
+               
             </script>
 
         </main>

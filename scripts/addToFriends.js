@@ -1,3 +1,10 @@
+addToFriendsBtn = document.getElementById("addBtn")
+if(friendship.length > 0) {                    
+    addToFriendsBtn.innerHTML = "Убрать из друзей"
+} else {
+    addToFriendsBtn.innerHTML = "Добавить в друзья"
+}
+                textDiv = document.getElementById("text")
 function addToFriends(event) {
     event.preventDefault();
 

@@ -114,7 +114,8 @@
                 window.friendship = <?php echo json_encode( $friendship, JSON_UNESCAPED_UNICODE)?>;
                 window.sender_id = <?php echo json_encode($_SESSION['user_id'], JSON_UNESCAPED_UNICODE) ?>;
                 window.user_id = <?php echo json_encode($userId, JSON_UNESCAPED_UNICODE) ?>;
-               
+                window.friendship_status = <?php echo json_encode(0, JSON_UNESCAPED_UNICODE) ?>;
+
             </script>
 
         </main>

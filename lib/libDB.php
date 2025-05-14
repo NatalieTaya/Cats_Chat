@@ -109,9 +109,9 @@ function createNewFriendship($friend_id ,$friends_with_id ,$status,$created_at) 
         ]);
     $query = null; $dbh = null;
 }
-function updateFriendship($friend_id ,$friends_with_id ,$status)     {
+function updateFriendship($friend_id, $friends_with_id, $status)     {
     include('db.php');
-    $query = $dbh->prepare('UPDATE friendships SET `status` = :new_status WHERE                     
+    $query = $dbh->prepare('UPDATE friendships SET `status` = :status WHERE                     
                                   (`friend_id` = :friend_id AND `friends_with_id` = :friends_with_id)
                                   OR
                                   (`friend_id` = :friends_with_id AND `friends_with_id` = :friend_id)');
@@ -147,14 +147,12 @@ function getFriendship($friend_id ,$friends_with_id )     {
     $query = null; $dbh = null;
     return $data;                             
 }
-function getAllFriendshipsRequests($friend_id, $status)     {
+// получение запроссов в друзья, поданных пользователю friends_with_id
+function getAllFriendshipsRequests($friends_with_id, $status)     {
     include('db.php');
     $query = $dbh->prepare('SELECT * FROM friendships WHERE
-                    (`friend_id` = :friend_id AND `status` = :status)
-                    OR
-                    (`friends_with_id` = :friend_id AND `status` = :status)');
-    $query->bindParam(':friend_id',$friend_id);
-    $query->bindParam(':friends_with_id',$friend_id);
+                    (`friends_with_id` = :friends_with_id AND `status` = :status)');
+    $query->bindParam(':friends_with_id',$friends_with_id);
     $query->bindParam(':status',$status);
     $query->execute();
     $data = $query->fetchAll();

@@ -41,25 +41,29 @@
                 <div class="myRequests">
                     <?php
                     foreach($friendships as $friendship){
-                        $user_info=getUserInfo($friendship['friend_id']);
-                        $photoUrl=getUserAvatar($user_info[0]['photo_id']);
-                        printf('<div><img src="%s" height="200px"></div>',$photoUrl);
-                        printf('<div>%s</div>',$user_info[0]['username']);
-                        printf('
-                        <form onsubmit="addToFriends(event)">
-                            <input      type="hidden" name="id" value="<?php echo $userId; ?>">
-                            <button     id="addBtn" type="submit"> Добавить в друзья </button>
-                        </form> ');
+                        if($friendship['status']==0) {
+                            $user_info=getUserInfo($friendship['friend_id']);
+                            $photoUrl=getUserAvatar($user_info[0]['photo_id']);
+                            printf('<div><img src="%s" height="200px"></div>',$photoUrl);
+                            printf('<div>%s</div>',$user_info[0]['username']);
+                            printf('
+                            <form onsubmit="addToFriends(event)">
+                                <input      type="hidden" name="sender_id" value="%s">
+                                <input      type="hidden" name="user_id" value="%s">
+                                <button     id="addBtn" type="submit"> Добавить в друзья </button>
+                                <div     id="text" >  </div>
+                            </form> ',  htmlspecialchars($friendship['friend_id']),
+                                        htmlspecialchars($friendship['friends_with_id']));
+                        }
                     }
                     ?>
                 </div>
             </div>
             <script>
                 window.friendship = <?php echo json_encode( $friendship, JSON_UNESCAPED_UNICODE)?>;
-                window.sender_id = <?php echo json_encode($_SESSION['user_id'], JSON_UNESCAPED_UNICODE) ?>;
-                window.user_id = <?php echo json_encode($userId, JSON_UNESCAPED_UNICODE) ?>;
-            </script>
+                window.friendship_status = <?php echo json_encode(1, JSON_UNESCAPED_UNICODE) ?>;
 
+            </script>
         </main>
 
 
